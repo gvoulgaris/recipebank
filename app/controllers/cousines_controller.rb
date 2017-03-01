@@ -1,6 +1,7 @@
 class CousinesController < ApplicationController
   def index
-    @cousines = Cousine.page(params[:page]).per(10)
+    @q = Cousine.ransack(params[:q])
+    @cousines = @q.result(:distinct => true).includes(:dishes).page(params[:page]).per(10)
 
     render("cousines/index.html.erb")
   end
