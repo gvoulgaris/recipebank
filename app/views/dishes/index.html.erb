@@ -16,8 +16,20 @@
 
       <% @dishes.each do |dish| %>
       <tr>
-        <td><%= dish.cousine.created_at %></td>
-        <td><%= dish.user.email %></td>
+        <td>
+          <% if dish.cousine.present? %>
+            <a href="/cousines/<%= dish.cousine.id %>">
+              <%= dish.cousine.created_at %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if dish.user.present? %>
+            <a href="/users/<%= dish.user.id %>">
+              <%= dish.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/dishes/<%= dish.id %>" class="btn btn-primary">Show</a>
           <a href="/dishes/<%= dish.id %>/edit" class="btn btn-warning">Edit</a>

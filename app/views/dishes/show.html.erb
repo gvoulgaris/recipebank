@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Cousine</dt>
-      <dd><%= @dish.cousine_id %></dd>
+      <dd>
+        <% if @dish.cousine.present? %>
+          <a href="/cousines/<%= @dish.cousine_id %>">
+            <%= @dish.cousine.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>User</dt>
-      <dd><%= @dish.user_id %></dd>
+      <dd>
+        <% if @dish.user.present? %>
+          <a href="/users/<%= @dish.user_id %>">
+            <%= @dish.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
