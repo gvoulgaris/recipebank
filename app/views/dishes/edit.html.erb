@@ -24,7 +24,7 @@
           Cousine
         </label>
 
-        <input type="text" id="cousine_id" name="cousine_id" placeholder="Cousine" class="form-control" value="<%= @dish.cousine_id %>">
+        <%= select_tag(:cousine_id, options_from_collection_for_select(Cousine.all, :id, :created_at, @dish.cousine_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for user_id -->
