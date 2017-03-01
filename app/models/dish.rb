@@ -1,6 +1,8 @@
 class Dish < ApplicationRecord
   # Direct associations
 
+  belongs_to :cousine
+
   belongs_to :user
 
   # Indirect associations
